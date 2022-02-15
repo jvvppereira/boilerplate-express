@@ -7,11 +7,19 @@ var app = express();
 //   res.send("Hello Express");
 // });
 
+app.use('/', function (req, res, next) {
+  const { method, path, ip } = req;
+  console.log(`${method} ${path} - ${ip}`);
+  next();
+});
+
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
 app.use('/public', express.static(__dirname + '/public'));
+
+
 
 app.get('/json', function(req, res) {
   let message =  "Hello json";
