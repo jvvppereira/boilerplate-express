@@ -14,7 +14,8 @@ app.use('/', function (req, res, next) {
 });
 
 app.get('/now', function(req, res, next) {
-  req.time = new Date().toString();
+  req.time = new Date();
+  req.time = req.time.setMinutes(req.time.getMinutes() + 2).toString();
   next();
 }, function(req, res) {
   res.send({time: req.time});
