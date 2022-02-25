@@ -21,13 +21,17 @@ app.get('/now', function(req, res, next) {
   res.send({time: req.time});
 });
 
-
 app.get("/:word/echo", function(req, res) {
-  const  { word } = req.params;
+  const { word } = req.params;
   
   res.json({echo: word});
 });
 
+app.get("/name", function(req, res) {
+  const { firstname, lastname } = req.query;
+  
+  res.json({ name: `${firstname} ${lastname}`});
+});
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
