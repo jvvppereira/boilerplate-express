@@ -30,11 +30,13 @@ app.get("/:word/echo", function(req, res) {
   res.json({echo: word});
 });
 
-app.get("/name", function(req, res) {
+const func = function(req, res) {
   const { first, last } = req.query;
   
   res.json({ name: `${first} ${last}`});
-});
+};
+
+app.get("/name", func).post("/name", func);
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
