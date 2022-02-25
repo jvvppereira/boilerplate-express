@@ -34,11 +34,11 @@ app.get("/name", function(req, res) {
   const { first, last } = req.query;
   
   res.json({ name: `${first} ${last}`});
-};).post("/name", function(req, res) {
+}).post("/name", function(req, res) {
   const { first, last } = req.body;
   
   res.json({ name: `${first} ${last}`});
-};);
+});
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
