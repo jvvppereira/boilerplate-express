@@ -28,9 +28,9 @@ app.get("/:word/echo", function(req, res) {
 });
 
 app.get("/name", function(req, res) {
-  const { firstname, lastname } = req.query;
+  const { first, last } = req.query;
   
-  res.json({ name: `${firstname} ${lastname}`});
+  res.json({ name: `${first} ${last}`});
 });
 
 app.get("/", function(req, res) {
